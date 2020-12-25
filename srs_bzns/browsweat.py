@@ -2,38 +2,40 @@ import datetime as dt
 from uuid import uuid1
 from timeboard.calendars.US import Weekly8x5
 
-class Worker:
+class Task:
   """
-  A class to describe those whom change the level of entropy.
+  A class to describe the observable change in entropy.
   """   
   
   def __init__(self, **kwargs):
-    self.name = kwargs.get('name')
-    self.profile = kwargs.get('profile')
-    self.rate = kwargs.get('rate')
-    self.availability = kwargs.get('availability')
+    self.descriptives = kwargs.get('descriptives')
+    self.output = kwargs.get('output')
+    self.duration = kwargs.get('duration')
+    self.start_date = kwargs.get('start_date')
+    self.dependencies = kwargs.get('dependencies')
     self.sem_context = kwargs.get('sem_context')
-    if kwargs.get('worker_id'):
-      self.worker_id = kwargs.get('worker_id')
+    if kwargs.get('task_id'):
+      self.task_id = kwargs.get('task_id')
     else:
-      self.worker_id = uuid1()
-    if kwargs.get('manager'):
-      self.manager = True
-      def alter_task(self, task_ids):
+      self.task_id = uuid1()
+    if kwargs.get('milestone'):
+      self.milestone = True
+      def aggregate_output(self, task_ids):
         return None
     
-    if kwargs.get('pm'):
-      self.pm = True
+    if kwargs.get('meta_task'):
+      self.meta_task = True
   
   def __repr__(self):
-    return "<Worker name:%s, worker_id:%s>" % (self.name, self.worker_id)
+    return "<Task descriptives:%s, task_id:%s>" % (self.descriptives, self.task_id)
   
   def __str__(self):
-    return "<Worker name:%s, worker_id:%s>" % (self.name, self.worker_id)
+    return "<Task descriptives:%s, task_id:%s>" % (self.descriptives, self.task_id)
   
 # ----------
 
 if __name__ == '__main__':
 
-  a_worker = Worker(name = 'Julio', availability = Weekly8x5())
-  print(a_worker)
+  descriptives = [{'title': 'Some bullshit'},{'description': 'Some comment describe the crap.'}]
+  a_task = Task(descriptives = descriptives)
+  print(a_task)
