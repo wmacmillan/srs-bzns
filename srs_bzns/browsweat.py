@@ -7,13 +7,16 @@ class Task:
   A class to describe the observable change in entropy.
   """   
   
-  def __init__(self, **kwargs):
+  def __init__(self,*args, **kwargs):
     self.descriptives = kwargs.get('descriptives')
     self.output = kwargs.get('output')
     self.duration = kwargs.get('duration')
     self.start_date = kwargs.get('start_date')
+    self.end_date = kwargs.get('end_date')
     self.dependencies = kwargs.get('dependencies')
     self.sem_context = kwargs.get('sem_context')
+    self.assigned_workers = kwargs.get('assigned_workers')
+    self.other_people = kwargs.get('other_people')
     if kwargs.get('task_id'):
       self.task_id = kwargs.get('task_id')
     else:
@@ -27,15 +30,22 @@ class Task:
       self.meta_task = True
   
   def __repr__(self):
-    return "<Task descriptives:%s, task_id:%s>" % (self.descriptives, self.task_id)
+    printstring = f"Task id: {self.task_id}\nTitle: {self.descriptives['title']}"
+    if self.assigned_workers:
+      printstring = printstring + f"\nWorkers: {self.assigned_workers}"
+    return printstring
   
   def __str__(self):
-    return "<Task descriptives:%s, task_id:%s>" % (self.descriptives, self.task_id)
+    printstring = f"Task id: {self.task_id}\nTitle: {self.descriptives['title']}"
+    if self.assigned_workers:
+      printstring = printstring + f"\nWorkers: {self.assigned_workers}"
+    return printstring
   
 # ----------
 
 if __name__ == '__main__':
 
-  descriptives = [{'title': 'Some bullshit'},{'description': 'Some comment describe the crap.'}]
-  a_task = Task(descriptives = descriptives)
+  workers = uuid1()
+  descriptives = {'title': 'Some bullshit','description': 'Some comment describe the crap.'}
+  a_task = Task(descriptives = descriptives, assigned_workers = workers)
   print(a_task)
