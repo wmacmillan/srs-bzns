@@ -11,6 +11,17 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+| I've been sleeping with these,
+| I've been sleeping with these thoughts, man
+| I've been contemplating singing them
+| So stand up, catch fire with me
+|
+| (This kid, this kid, this kid, this kid, this kid)
+|
+| You can follow them to hell
+| 
+| `r tufte::quote_footer('--- AWOLNATION')`
+
 # Introduction and Definitions
 
 Planning and then administering the execution of a project, whether large or small, is a laborious process rife with manual labor, bookkeeping, and true uncertainty, in addition to risk. Currently, little is available in the public sphere, for love or money, that abstracts the structure of projects and scaffolds the various processes to allow for a rapid deployment or adjustment of a project. Even pre-planning is, itself, a project and suffers from the same lack of template or clarity.
