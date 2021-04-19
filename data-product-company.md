@@ -4,13 +4,13 @@ A data product company is a firm that provides a service to clients by easing th
 
 Data -> Information -> Knowledge -> Action -> Results
 
-A data product company takes data and transforms the data into information. The information should be presented in such a way that it easily produces knowledge for the user.^[An AI-product company, by comparison, takes data and produces actions. An AI system creates a closed-loop system where results are measured and fed back into the system as data.] The goal of a data product company is to efficiently move from data to the conditions for knowledge acquition in the user base, which is synonomous with clients.^[N.b. For a firm like Facebook, the user base and client base are not the same. Facebook clients are advitisers, and the users are human chattel.]
+A data product company takes data and transforms the data into information. The information should be presented in such a way that it easily produces knowledge for the user.^[An AI-product company, by comparison, takes data and produces actions. An AI system creates a closed-loop system where results are measured and fed back into the system as data.] The goal of a data product company is to efficiently move from data to the conditions for knowledge acquition in the user base, which is synonomous with clients.<sup id="a1">[1](#f1)</sup>
 
 A data product is a combination of three elements:
 
 1. Data Processing
 2. User Interface
-3. Data Curation^[Absent this third element, a company is a data _storage_ company and not a data _product_ company.]
+3. Data Curation<sup id="a1">[2](#f1)</sup>
 
 ## Definitions
 
@@ -75,4 +75,6 @@ The single most critical terms of data product companies are:
     - Data owner signs off on choice(s) of dataset (includes content sets, generally)
 - Validation
     - Curator test fitness for purpose with sample(s)
-- 
+
+<b id="f1">1</b> N.b. For a firm like Facebook, the user base and client base are not the same. Facebook clients are advitisers, and the users are human chattel. [↩](#a1)
+<b id="f1">2</b> Absent this third element, a company is a data _storage_ company and not a data _product_ company. [↩](#a1)
