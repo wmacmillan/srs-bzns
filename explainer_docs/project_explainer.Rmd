@@ -112,44 +112,25 @@ In this section we'll continue to be formal, but start to construct class functi
 
 For anything under consideration here, a worker is a human being. Humans are identified by a non-unique name, and a unique and arbitrary alpha-numeric identifier. Along with their name, people have a set of attributes, a profile, that is independent of their identity, but relevant for projects. This profile defines how a person might be able to complete a task. A software engineer, for example, may not be able to complete the work of a carpenter. Alternately, perhaps you need a plumber, but Bob the plumber charges $1,000,000 an hour, and this is outside the amount you are willing to spend. Identity is atomic, but worker profiles can be defined to an arbitrary level of precision on an arbitrary number of dimensions.^[As a convenience, however, we will define the going rate of a worker as a basal characteristic of a specific worker.] Additionally, people are not always available, which must be taken into consideration. Human beings require time away from tasks, as well as other physical considerations which make them unavailable for tasks. Finally, humans are semantically linked to abstract items which define the context in which they work. People may find they work on a team, which is intended to achieve particular output goals in a highly dependent way, for one example.
 
-As a python class, the basic definition of a worker would be implemented as the following:
+As a pseudo-Python dataclass, the basic definition of a worker would be implemented as the following:
 
-```{python, echo=TRUE}
-import datetime as dt
-from uuid import uuid1
-from timeboard.calendars.US import Weekly8x5
-
+```{python, echo=TRUE, eval=FALSE}
+@dataclass
 class Worker:
-  
-  def __init__(self, **kwargs):
-    self.name = kwargs.get('name')
-    self.profile = kwargs.get('profile')
-    self.rate = kwargs.get('rate')
-    self.availability = kwargs.get('availability')
-    self.sem_context = kwargs.get('sem_context')
-    if kwargs.get('worker_id'):
-      self.worker_id = kwargs.get('worker_id')
-    else:
-      self.worker_id = uuid1()
-    if kwargs.get('manager'):
-      self.manager = True
-      def alter_task(self, task_ids):
-        return None
-    
-    if kwargs.get('pm'):
-      self.pm = True
-  
+    name: str
+    profile: dict
+    hourly_rate: float
+    availability: Calender
+    semantic_context: dict
+    employee_id: str
+    manager: Worker
+    project_authorizations: dict
+ 
   def __repr__(self):
     return "<Worker name:%s, worker_id:%s>" % (self.name, self.worker_id)
-  
-  def __str__(self):
-    return "<Worker name:%s, worker_id:%s>" % (self.name, self.worker_id)
-  
-# ----------
+ 
 
 a_worker = Worker(name = 'Julio', availability = Weekly8x5())
-print(a_worker)
-
 ```
 
 
